@@ -9,7 +9,7 @@ load_dotenv()
 coach_url = os.getenv("COACH_PATH")
 db_url = os.getenv("DB_URL")
 engine = create_engine(db_url, echo=True)
-inspector = inspect(engine)
+# inspector = inspect(engine)
 Base = declarative_base()
 
 # tables = inspector.get_table_names(schema='coach_schema')
