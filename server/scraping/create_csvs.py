@@ -29,21 +29,21 @@ for year in years:
             print(f"No offense table found for {year}")
             
         # Defense
-        # with open(f"defense/def_pages/{year}.html") as f:
-        #     def_page = f.read()
+        with open(f"defense/def_pages/{year}.html") as f:
+            def_page = f.read()
             
-        # def_soup = BeautifulSoup(def_page, "html.parser")
-        # def_table = def_soup.find(id="team_stats")
-        # if def_table:
-        #     def_table.find('tfoot').decompose()
-        #     header_row2 = def_table.find('tr', class_="over_header")
-        #     if header_row2:
-        #         header_row2.decompose()
+        def_soup = BeautifulSoup(def_page, "html.parser")
+        def_table = def_soup.find(id="team_stats")
+        if def_table:
+            def_table.find('tfoot').decompose()
+            header_row2 = def_table.find('tr', class_="over_header")
+            if header_row2:
+                header_row2.decompose()
                 
-        #     defense = pd.read_html(StringIO(str(def_table)))[0]
-        #     defense.to_csv(f"defense/csv/{year}_defense.csv", index=False)
-        #     print(f"Processed defense for {year}")
-        # else:
-        #     print(f"No defense table found for {year}")
+            defense = pd.read_html(StringIO(str(def_table)))[0]
+            defense.to_csv(f"defense/csv/{year}_defense.csv", index=False)
+            print(f"Processed defense for {year}")
+        else:
+            print(f"No defense table found for {year}")
     except Exception as e:
         print(f"Error processing year {year}: {e}")
