@@ -53,6 +53,7 @@ for year in years:
                 nya=row['NY/A'],
                 first_downs=row['1stD.1']
             )
+            
             r_off = RushingOffensiveData(
                 team_id=team.team_id,
                 attempts=row['Att.1'],
