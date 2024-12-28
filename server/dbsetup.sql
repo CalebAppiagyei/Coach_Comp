@@ -18,7 +18,7 @@ CREATE TABLE coach_schema.teams (
     team_id SERIAL PRIMARY KEY,
     team_name VARCHAR(255) NOT NULL,
     year INT NOT NULL REFERENCES coach_schema.seasons(year),
-    coach_id INT NOT NULL REFERENCES coach_schema.coach_data(coach_id),
+    coach_id INT NOT NULL REFERENCES coach_schema.coach_data(coach_id) DEFAULT 1,
     games INT NOT NULL,
     extra_info JSONB DEFAULT '{}', -- Will use to handle coaches who didn't last a full season --
     UNIQUE (team_name, year)
@@ -33,7 +33,7 @@ CREATE TABLE coach_schema.tot_off_data (
     turnovers INT DEFAULT 0,
     penalties INT DEFAULT 0,
     pen_yds INT DEFAULT 0,
-    firstD int DEFAULT 0
+    firstd int DEFAULT 0
 );
 
 CREATE TABLE coach_schema.pass_off_data (
@@ -65,7 +65,7 @@ CREATE TABLE coach_schema.tot_def_data (
     turnovers INT DEFAULT 0,
     penalties INT DEFAULT 0,
     pen_yds INT DEFAULT 0,
-    firstD int DEFAULT 0
+    firstd int DEFAULT 0
 );
 
 CREATE TABLE coach_schema.pass_def_data (
@@ -116,3 +116,6 @@ VALUES
     (2021, 17),
     (2022, 17),
     (2023, 17);
+
+    INSERT INTO coach_schema.coach_data(name)
+    VALUES ('Name');
