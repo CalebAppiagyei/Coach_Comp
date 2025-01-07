@@ -25,7 +25,7 @@ router.get("/pass_defense", async (req, res) => {
         });
     }
     catch (err) {
-        console.err("Error grabbing defenses from database:", err);
+        console.error("Error grabbing defenses from database:", err);
         return res.status(500).json({ error: "Error getting defenses"});
     }
 });
