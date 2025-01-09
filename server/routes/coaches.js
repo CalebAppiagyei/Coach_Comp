@@ -31,6 +31,7 @@ router.get("/coaches", async (req, res) => {
 });
 
 router.post("/coaches", async function (req, res) {
+    console.log(req.body)
     const name = req.body.name;
     const games = req.body.games ?? 0;
     const wl_pct = req.body.wl_pct ?? 0;
@@ -62,8 +63,9 @@ router.post("/coaches", async function (req, res) {
 router.put("/coaches/:id", async (req, res) => {
     const coach_id = req.params.id;
     const { name, games, wl_pct } = req.body;
-
-    if (!name || !games || !wl_pct) {
+    console.log(req.body);
+    
+    if (!name && !games && !wl_pct) {
         return res.status(400).json({ error: "Missing required fields" });
     }
 
@@ -130,7 +132,7 @@ router.delete("/coaches/:id", async (req, res) => {
         if (response.rowCount === 0) {
             return res.status(404).json({ error: "Coach not found" });
         }
-        
+
         return res.status(200).json({
             message: "Successfully removed coach"
         });
