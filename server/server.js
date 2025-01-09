@@ -42,7 +42,7 @@ app.post("/test", (req, res) => {
 app.listen(4000, () => console.log("Server on localhost:4000"));
 
 const coachRoutes = require("./routes/coaches");
-// const passDefRoutes = require("./routes/pass_def");
+const passDefRoutes = require("./routes/pass_def");
 // const passOffRoutes = require("./routes/pass_off");
 // const rushOffRoutes = require("./routes/rush_off");
 // const rushDefRoutes = require("./routes/rush_def");
@@ -52,7 +52,7 @@ const coachRoutes = require("./routes/coaches");
 // const teamRoutes = require("./routes/teams");
 
 app.use('', coachRoutes);
-// app.use('', passDefRoutes);
+app.use('', passDefRoutes);
 // app.use('', passOffRoutes);
 // app.use('', rushOffRoutes);
 // app.use('', rushDefRoutes);
