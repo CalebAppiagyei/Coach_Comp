@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";  
+import HomePage from './pages/HomePage';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
           path='/'
           element={
               <>
-                <h1>Welcome to Coach Compare</h1>
+                <HomePage/>
               </>
           }
         />
