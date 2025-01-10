@@ -7,8 +7,30 @@
 }
 
 .bg {
-    background: url("../images/football_field.jpg") no-repeat center fixed;
-    background-size: cover;
+    position: relative;
     height: 100vh;
     object-fit: cover;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 1;
   }
+
+.bg .bgImage {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/football_field.jpg") no-repeat center fixed;
+  background-size: cover;
+  opacity: 0.45;
+}
+
+.message {
+  font-size: 4rem;
+  margin-top: 8%;
+  color: #b5352c;
+  margin-bottom: 90%;
+}
